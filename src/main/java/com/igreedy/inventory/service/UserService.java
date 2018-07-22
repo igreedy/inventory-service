@@ -14,4 +14,9 @@ public interface UserService {
      */
     public User findUserInfo();
 
+    /**
+     * 查询redis中缓存的用户信息
+     * @return
+     */
+    public User getCachedUserInfo();
 }

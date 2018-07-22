@@ -77,6 +77,10 @@
             <artifactId>spring-context</artifactId>
             <version>4.1.7.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

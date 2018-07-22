@@ -13,8 +13,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
+import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.JedisCluster;
 
-import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 库存服务入口类
@@ -59,6 +62,20 @@ public class Application {
     @Bean
     public PlatformTransactionManager transactionManager(){
         return new DataSourceTransactionManager(dataSource());
+    }
+
+    /**
+     * 加载Redis Cluster集群
+     * @return
+     */
+    @Bean
+    public JedisCluster JedisClusterFactory() {
+        Set<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();
+        jedisClusterNodes.add(new HostAndPort("172.16.83.14", 7003));
+        jedisClusterNodes.add(new HostAndPort("172.16.83.15", 7004));
+        jedisClusterNodes.add(new HostAndPort("172.16.83.16", 7006));
+        JedisCluster jedisCluster = new JedisCluster(jedisClusterNodes);
+        return jedisCluster;
     }
 
     /**
