@@ -5,4 +5,7 @@ package com.igreedy.inventory.request;
  * Created by igreedy on 2018/7/23
  */
 public interface Request {
+
+    void process();
+
 }
