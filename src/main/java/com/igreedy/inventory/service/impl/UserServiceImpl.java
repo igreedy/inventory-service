@@ -1,7 +1,6 @@
 package com.igreedy.inventory.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor;
 import com.igreedy.inventory.dao.RedisDao;
 import com.igreedy.inventory.mapper.UserMapper;
 import com.igreedy.inventory.model.User;
