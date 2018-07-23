@@ -29,4 +29,24 @@ public class ProductInventoryServiceImpl implements ProductInventoryService {
         String key = "product:inventory:" + productInventory.getProductId();
         redisDao.delete(key);
     }
+
+    /**
+     * 根据商品id查询商品库存
+     * @param productId 商品ID
+     * @return 商品库存
+     */
+    @Override
+    public ProductInventory findProductInventory(Integer productId){
+        return productInventoryMapper.findProductInventory(productId);
+    }
+
+    /**
+     * 设置商品库存的缓存
+     * @param productInventory 商品库存
+     */
+    @Override
+    public void setProductInventoryCache(ProductInventory productInventory) {
+        String key = "product:inventory:" + productInventory.getProductId();
+        redisDao.set(key, String.valueOf(productInventory.getInventoryCnt()));
+    }
 }
