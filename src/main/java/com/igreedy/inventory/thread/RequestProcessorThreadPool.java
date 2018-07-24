@@ -37,7 +37,7 @@ public class RequestProcessorThreadPool {
             // 这个 queue 跟 workerThread 是绑定在一起，一个queue对应一个workerThread
             // 然后这个workerThread只有10个线程
             // 这里就是将每个含100个请求的队列 扔进线程池里面去。这样就有了10个线程
-            threadPool.submit(new WorkerThread(queue));
+            threadPool.submit(new RequestProcessorThread(queue));
         }
     }
 

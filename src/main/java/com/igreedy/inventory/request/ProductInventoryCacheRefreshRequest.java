@@ -4,7 +4,6 @@ import com.igreedy.inventory.model.ProductInventory;
 import com.igreedy.inventory.service.ProductInventoryService;
 
 /**
- *
  * 重新加载商品库存的缓存，从数据库查出来，然后写到缓存中去
  * Created by igreedy on 2018/7/23
  */
@@ -34,18 +33,9 @@ public class ProductInventoryCacheRefreshRequest implements Request {
         productInventoryService.setProductInventoryCache(productInventory);
 
     }
+
+    @Override
+    public Integer getProductId() {
+        return productId;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
